@@ -1,13 +1,13 @@
 {
   "name": "AFK Bot",
   "bot-account": {
-    "username": "YourBotUsername",
-    "password": "",
+    "username": "24/7_bot",
+    "password": "bot",
     "type": "offline"
   },
   "server": {
-    "ip": "your.server.ip",
-    "port": 25565,
+    "ip": "primalsmp-2jK6.aternos.me:21693",
+    "port": 21693,
     "version": "",
     "try-creative": false
   },
@@ -31,8 +31,8 @@
       "repeat": true,
       "repeat-delay": 120,
       "messages": [
-        "I'm a regular player",
-        "I like to play Minecraft!"
+        "I'm a noob",
+        "I keep the servver active"
       ]
     },
     "chat-log": true,
