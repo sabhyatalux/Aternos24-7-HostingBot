@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "primalsmp-2jK6.aternos.me:21693",
+    "ip": "primalsmp-2jK6.aternos.me",
     "port": 21693,
     "version": "26.2",
     "try-creative": false
