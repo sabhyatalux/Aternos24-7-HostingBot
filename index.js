@@ -40,12 +40,17 @@ function createBot() {
             return;
         }
 
+        // Determine Minecraft version: fallback to "1.21.1" if settings specify false or empty
+        // This prevents autoVersion ping failures when Aternos servers are offline/starting up
+        const targetVersion = (process.env.BOT_VERSION || settings.server.version) || '1.21.1';
+
         bot = mineflayer.createBot({
             host: targetHost,
             port: parseInt(process.env.BOT_PORT) || settings.server.port || 25565,
             username: (process.env.BOT_USERNAME || settings['bot-account'].username || 'HostingBot').trim(),
-            version: settings.server.version || false,
-            auth: settings['bot-account'].type || 'offline'
+            version: targetVersion,
+            auth: settings['bot-account'].type || 'offline',
+            checkTimeoutInterval: 60 * 1000 // Prevents premature timeout during server startup
         });
 
         bot.loadPlugin(pathfinder);
@@ -83,9 +88,13 @@ function createBot() {
             }
         });
 
-        // Catch connection errors cleanly so Node process doesn't terminate
+        // Catch connection errors cleanly so Node process doesn't crash on server ping/startup
         bot.on('error', (err) => {
-            console.error(`[Mineflayer Event Error]: ${err.message}`);
+            if (err.message.includes('Unsupported protocol version') || err.message.includes('minecraftVersion')) {
+                console.error(`[Mineflayer Event Error]: Server offline or starting up. Skipping autoVersion ping.`);
+            } else {
+                console.error(`[Mineflayer Event Error]: ${err.message}`);
+            }
         });
 
         bot.once('end', (reason) => {
