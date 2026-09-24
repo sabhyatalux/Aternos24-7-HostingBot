@@ -1,14 +1,14 @@
 {
   "name": "AFK Bot",
   "bot-account": {
-    "username": "24/7_bot",
+    "username": "AFK_Bot_247",
     "password": "bot",
     "type": "offline"
   },
   "server": {
     "ip": "primalsmp2-pod0.aternos.me",
     "port": 20515,
-    "version": "",
+    "version": "1.20.1",
     "try-creative": false
   },
   "position": {
@@ -32,12 +32,12 @@
       "repeat-delay": 120,
       "messages": [
         "I'm a noob",
-        "I keep the servver active"
+        "I keep the server active"
       ]
     },
     "chat-log": true,
     "auto-reconnect": true,
-    "auto-reconnect-delay": 2000,
+    "auto-reconnect-delay": 10000,
     "max-reconnect-delay": 120000
   },
   "movement": {
