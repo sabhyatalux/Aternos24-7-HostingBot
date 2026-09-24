@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "primalsmp2-pod0.aternos.me",
+    "ip": "primalsmp2-pod0.aternos.me:20515",
     "port": 20515,
     "version": "1.20.1",
     "try-creative": false
